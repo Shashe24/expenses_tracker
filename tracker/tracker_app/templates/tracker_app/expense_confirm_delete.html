@@ -1,0 +1,15 @@
+{% extends "tracker_app/base.html" %}
+{% block title %}Delete Expense{% endblock %}
+
+{% block content %}
+<h2>Delete Expense</h2>
+
+<p>Are you sure you want to delete "<b>{{ expense.title }}</b>"?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Yes, Delete</button>
+    <a href="{% url 'tracker_app:expense_list' %}">Cancel</a>
+</form>
+
+{% endblock %}

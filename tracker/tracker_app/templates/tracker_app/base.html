@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Expenses Tracker{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'tracker_app/css/styles.css' %}">
+</head>
+<body>
+
+<header class="site-header">
+    <h1><a href="{% url 'tracker_app:expense_list' %}">Expenses Tracker</a></h1>
+
+    <nav>
+        <a href="{% url 'tracker_app:expense_add' %}">Add Expense</a> |
+        <a href="{% url 'tracker_app:monthly_summary' %}">Monthly Summary</a> |
+        <a href="/admin/">Admin</a>
+    </nav>
+</header>
+
+<main class="container">
+    {% block content %}
+    {% endblock %}
+</main>
+
+</body>
+</html>
